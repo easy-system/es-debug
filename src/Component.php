@@ -125,15 +125,15 @@ class Component implements ComponentInterface
     protected $systemConfig = [
         'view' => [
             'resolver' => [
-                'debug/dump'               => __DIR__ . '/../view/dump.phtml',
-                'debug/toolbar'            => __DIR__ . '/../view/toolbar.phtml',
-                'debug/timers'             => __DIR__ . '/../view/timers.phtml',
-                'debug/components'         => __DIR__ . '/../view/components.phtml',
-                'debug/modules'            => __DIR__ . '/../view/modules.phtml',
-                'debug/services'           => __DIR__ . '/../view/services.phtml',
-                'debug/listeners'          => __DIR__ . '/../view/listeners.phtml',
-                'debug/controllers'        => __DIR__ . '/../view/controllers.phtml',
-                'debug/request-attributes' => __DIR__ . '/../view/request-attributes.phtml',
+                'debug/dump'               => '{view_dir}/dump.phtml',
+                'debug/toolbar'            => '{view_dir}/toolbar.phtml',
+                'debug/timers'             => '{view_dir}/timers.phtml',
+                'debug/components'         => '{view_dir}/components.phtml',
+                'debug/modules'            => '{view_dir}/modules.phtml',
+                'debug/services'           => '{view_dir}/services.phtml',
+                'debug/listeners'          => '{view_dir}/listeners.phtml',
+                'debug/controllers'        => '{view_dir}/controllers.phtml',
+                'debug/request-attributes' => '{view_dir}/request-attributes.phtml',
             ],
         ],
     ];
@@ -144,6 +144,33 @@ class Component implements ComponentInterface
      * @var string
      */
     protected $version = '0.1.0';
+
+    /**
+     * Constructor.
+     *
+     * Normalizes the system configuration.
+     *
+     * Unable to use the following syntax for PHP 5.5:
+     * <code>
+     *    protected $systemConfig = [
+     *        'view' => [
+     *            'resolver' => [
+     *                'debug/dump'    => __DIR__ . '/../view/dump.phtml',
+     *                'debug/toolbar' => __DIR__ . '/../view/toolbar.phtml',
+     *                // ...
+     *            ],
+     *        ],
+     *    ];
+     * </code>
+     */
+    public function __construct()
+    {
+        $viewDir = dirname(__DIR__) . DS . 'view';
+        $convertor = function (&$item) use ($viewDir) {
+            $item = str_replace('{view_dir}', $viewDir, $item);
+        };
+        array_walk_recursive($this->systemConfig, $convertor);
+    }
 
     /**
      * Gets the current version of component.
