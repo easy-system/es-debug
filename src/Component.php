@@ -107,7 +107,7 @@ class Component implements ComponentInterface
             SystemEvent::CLASS,
             'SystemProfiler',
             'captureStop',
-            -PHP_INT_MAX,
+            PHP_INT_MAX * -1,
         ],
         'SystemProfiler::captureStart' => [
             SystemEvent::CLASS,
