@@ -1,0 +1,26 @@
+<?php
+/**
+ * This file is part of the "Easy System" package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author Damon Smith <damon.easy.system@gmail.com>
+ */
+?>
+
+<span>
+    <ul>
+
+        <?php
+            foreach($timers as $event => $time):
+            if ('Total' === $event) continue;
+        ?>
+
+        <li><pre><?= sprintf('%18s : %.4f', $event, $time) ?></pre></li>
+
+        <?php endforeach ?>
+
+    </ul>
+    Total time: <?= sprintf('%.4f', $timers['Total']) ?>
+</span>

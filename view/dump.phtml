@@ -1,0 +1,50 @@
+<?php
+/**
+ * This file is part of the "Easy System" package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author Damon Smith <damon.easy.system@gmail.com>
+ */
+?>
+
+<style type ="text/css">
+    #debug-dump {
+        max-width: 1170px;
+        padding: 0 15px;
+        margin:20px auto 60px;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333;
+    }
+    #debug-dump pre {
+        border:none;
+        background:#333;
+        font-size:12px;
+        color:#fff;
+    }
+    #debug-dump pre code {
+        font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+        word-wrap:break-word;
+    }
+
+</style>
+
+<?php if (isset($dumps)): ?>
+
+    <div id="debug-dump">
+
+        <?php foreach ($dumps as $item): ?>
+
+        <h3>Dump of variable</h3>
+        <p>from <?= $item->getFile() ?> (<?= $item->getLine() ?>)</p>
+
+        <pre><code><?= $item ?></code></pre>
+
+        <?php endforeach ?>
+
+    </div>
+
+<?php endif; ?>

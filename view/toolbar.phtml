@@ -1,0 +1,100 @@
+<?php
+/**
+ * This file is part of the "Easy System" package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author Damon Smith <damon.easy.system@gmail.com>
+ */
+?>
+
+<style type="text/css">
+    @media(min-width:800px) {
+        body {
+            margin-bottom:38px;
+        }
+        #debug-toolbar span {
+            display:inline-block;
+            border-left:1px solid #555;
+        }
+    }
+    @media(max-width:800px) {
+        body {
+            margin-bottom:260px;
+        }
+        #debug-toolbar span {
+            display:block;
+            border-bottom:1px solid #555;
+        }
+    }
+    #debug-toolbar {
+        min-height:38px;
+        padding:2px 16px;
+        font-size:12px;
+        text-align:left;
+        position:fixed;
+        bottom:0;
+        left:0;
+        right:0;
+        background:#18181b;
+        color:#fff;
+    }
+    #debug-toolbar ul, #debug-toolbar li, #debug-toolbar ul li pre {
+        background:#333;
+    }
+    #debug-toolbar ul, #debug-toolbar li {
+        margin:0px;
+        padding:0px;
+        list-style-type:none;
+        display:block;
+    }
+    #debug-toolbar ul {
+        max-height:140px;
+        overflow-y:scroll;
+        position:absolute;
+        bottom:100%;
+        left:0;
+        z-index:999;
+        visibility:hidden;
+    }
+    #debug-toolbar ul li {
+        padding:8px 8px;
+        min-width:260px;
+        font-size:11px;
+        border-bottom:1px solid #555;
+    }
+    #debug-toolbar span:hover {
+        cursor:pointer;
+        color:#ddd;
+    }
+    #debug-toolbar span:hover ul, #debug-toolbar ul:hover {
+        visibility:visible;
+    }
+    #debug-toolbar span:hover ul li, #debug-toolbar ul:hover li, #debug-toolbar span:hover ul pre, #debug-toolbar ul:hover pre {
+
+    }
+    #debug-toolbar span {
+        padding:4px 12px;
+        height:34px;
+        position:relative;
+        color:#bcbdbe;
+    }
+    #debug-toolbar li pre {
+        margin:0;
+        padding:0;
+        max-width:280px;
+        font-size:11px;
+        border:none;
+        white-space:pre-wrap;
+        white-space:-moz-pre-wrap !important;
+        white-space:-o-pre-wrap;
+        word-wrap:break-word;
+    }
+</style>
+
+<div id="debug-toolbar">
+
+    <?= $this->content ?>
+
+</div>
