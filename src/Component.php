@@ -165,7 +165,7 @@ class Component implements ComponentInterface
      */
     public function __construct()
     {
-        $viewDir = dirname(__DIR__) . DS . 'view';
+        $viewDir = dirname(__DIR__) . PHP_DS . 'view';
         $convertor = function (&$item) use ($viewDir) {
             $item = str_replace('{view_dir}', $viewDir, $item);
         };
