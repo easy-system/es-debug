@@ -101,13 +101,13 @@ class Component implements ComponentInterface
             ToolbarEvent::CLASS,
             'Es.Debug.Listener.InjectToolbarListener',
             '__invoke',
-            PHP_INT_MAX * -1,
+            PHP_INT_MIN,
         ],
         'SystemProfiler::captureStop' => [
             SystemEvent::CLASS,
             'SystemProfiler',
             'captureStop',
-            PHP_INT_MAX * -1,
+            PHP_INT_MIN,
         ],
         'SystemProfiler::captureStart' => [
             SystemEvent::CLASS,
