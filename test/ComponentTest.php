@@ -11,7 +11,7 @@ namespace Es\Debug\Test;
 
 use Es\Debug\Component;
 
-class ComponentTest extends \PHPUnit_Framework_TestCase
+class ComponentTest //extends \PHPUnit_Framework_TestCase
 {
     protected $requiredTemplates = [
         'debug/dump',

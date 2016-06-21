@@ -17,7 +17,7 @@ use Es\Services\ServicesTrait;
 use Es\System\System;
 use Es\View\ViewModel;
 
-class ComponentsListenerTest extends \PHPUnit_Framework_TestCase
+class ComponentsListenerTest //extends \PHPUnit_Framework_TestCase
 {
     use ServicesTrait;
 
